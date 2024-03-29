@@ -3,8 +3,6 @@
 //  Lesson10HW
 //
 
-//
-
 import UIKit
 
 class SignUpView: UIView {
@@ -26,8 +24,26 @@ class SignUpView: UIView {
     // MARK: - Buttons
     @IBOutlet weak var signUpButton: UIButton!
     
+    @IBOutlet weak var scrollView: UIScrollView!
+    
+    @IBOutlet private var contentViewStackView: UIStackView!
+    
     // MARK: - Actions
     @IBAction func signUpButtonAction(_ sender: UIButton) {
-        
+       endEditing(true)
+    }
+    
+    func setTextFieldDelegate(_ delegate: UITextFieldDelegate) {
+        contentViewStackView.subviews.forEach { view in
+            if let textField = view as? UITextField {
+                textField.delegate = delegate
+            } else {
+                view.subviews.forEach { view in
+                    if let textField = view as? UITextField {
+                        textField.delegate = delegate
+                    }
+                }
+            }
+        }
     }
 }

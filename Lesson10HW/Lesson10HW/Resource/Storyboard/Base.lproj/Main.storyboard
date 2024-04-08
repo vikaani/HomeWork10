@@ -180,7 +180,7 @@
                                                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JAY-eF-VWB">
                                                                                 <rect key="frame" x="0.0" y="32" width="177" height="38.333333333333343"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                                                <textInputTraits key="textInputTraits" keyboardType="numberPad" secureTextEntry="YES"/>
                                                                                 <connections>
                                                                                     <outlet property="delegate" destination="BYZ-38-t0r" id="87q-as-v8R"/>
                                                                                 </connections>

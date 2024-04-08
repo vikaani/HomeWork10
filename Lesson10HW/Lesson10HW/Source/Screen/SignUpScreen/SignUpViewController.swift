@@ -8,6 +8,9 @@ import UIKit
 class SignUpViewController: UIViewController {
     @IBOutlet weak var contentView: SignUpView!
 
+    private let maxCharactersCount = 16
+    private let minCharactersCount = 3
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         subscrubeNotifications()
@@ -27,13 +30,16 @@ class SignUpViewController: UIViewController {
 // MARK: - UITextFieldDelegate
 extension SignUpViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+
+        guard let textFieldText = textField.text else { return false }
+        let updatedText = (textFieldText as NSString).replacingCharacters(in: range, with: string)
         
         if textField == cardNumberTextField {
-            return cardNumberTextField.text!.count <= 16
+            return updatedText.count <= maxCharactersCount
         } else if textField == cvvTextField {
-            return cvvTextField.text!.count <= 3
+            return updatedText.count <= minCharactersCount
         }
-        
+
         return true
     }
     
